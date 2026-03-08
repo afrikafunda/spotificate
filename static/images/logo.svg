@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#1a1a1a"/>
+    </linearGradient>
+
+    <!-- Contour line clipping paths -->
+    <clipPath id="clip1"><rect x="0" y="0" width="400" height="400"/></clipPath>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="190" fill="url(#bgGrad)" stroke="#1DB954" stroke-width="2"/>
+
+  <!-- Contour lines — horizontal bands that run across the S shape -->
+  <!-- These are full-width lines that get "shaped" by the S letterform via opacity/masking -->
+
+  <!-- Background contour lines (subtle, full width) -->
+  <g opacity="0.07" stroke="#1DB954" stroke-width="1" fill="none">
+    <line x1="30" y1="100" x2="370" y2="100"/>
+    <line x1="30" y1="115" x2="370" y2="115"/>
+    <line x1="30" y1="130" x2="370" y2="130"/>
+    <line x1="30" y1="145" x2="370" y2="145"/>
+    <line x1="30" y1="160" x2="370" y2="160"/>
+    <line x1="30" y1="175" x2="370" y2="175"/>
+    <line x1="30" y1="190" x2="370" y2="190"/>
+    <line x1="30" y1="205" x2="370" y2="205"/>
+    <line x1="30" y1="220" x2="370" y2="220"/>
+    <line x1="30" y1="235" x2="370" y2="235"/>
+    <line x1="30" y1="250" x2="370" y2="250"/>
+    <line x1="30" y1="265" x2="370" y2="265"/>
+    <line x1="30" y1="280" x2="370" y2="280"/>
+    <line x1="30" y1="295" x2="370" y2="295"/>
+    <line x1="30" y1="310" x2="370" y2="310"/>
+  </g>
+
+  <!-- The S letterform -->
+  <path d="
+    M 255 130
+    C 255 100 230 82 200 82
+    C 165 82 138 105 138 138
+    C 138 168 158 182 185 192
+    L 215 202
+    C 242 212 262 228 262 262
+    C 262 298 235 318 200 318
+    C 162 318 138 295 138 268
+  "
+  fill="none"
+  stroke="#f5f5f0"
+  stroke-width="52"
+  stroke-linecap="round"
+  filter="url(#glow)"
+  />
+
+  <!-- Contour lines OVER the S — clipped to S shape -->
+  <g clip-path="url(#clip1)">
+    <!-- We simulate contour lines through the S by drawing them with the S stroke as a mask -->
+    <!-- Using a series of colored strokes at different y positions with varying green intensity -->
+
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#0d0d0d" stroke-width="52" stroke-linecap="round"/>
+
+    <!-- Contour bands — each is a partial stroke dash that creates a horizontal band effect -->
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none"
+      stroke="#1DB954"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-dasharray="200 10000"
+      stroke-dashoffset="-20"
+      opacity="0.9"
+    />
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"
+      stroke-dasharray="160 10000" stroke-dashoffset="-60" opacity="0.85"/>
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"
+      stroke-dasharray="130 10000" stroke-dashoffset="-100" opacity="0.8"/>
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"
+      stroke-dasharray="100 10000" stroke-dashoffset="-140" opacity="0.75"/>
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"
+      stroke-dasharray="80 10000" stroke-dashoffset="-180" opacity="0.7"/>
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"
+      stroke-dasharray="70 10000" stroke-dashoffset="-220" opacity="0.65"/>
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"
+      stroke-dasharray="60 10000" stroke-dashoffset="-265" opacity="0.6"/>
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"
+      stroke-dasharray="55 10000" stroke-dashoffset="-305" opacity="0.55"/>
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"
+      stroke-dasharray="50 10000" stroke-dashoffset="-345" opacity="0.5"/>
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"
+      stroke-dasharray="45 10000" stroke-dashoffset="-385" opacity="0.45"/>
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#1DB954" stroke-width="1.5" stroke-linecap="round"
+      stroke-dasharray="40 10000" stroke-dashoffset="-420" opacity="0.4"/>
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#1aaa44" stroke-width="1.5" stroke-linecap="round"
+      stroke-dasharray="38 10000" stroke-dashoffset="-455" opacity="0.4"/>
+    <path d="M 255 130 C 255 100 230 82 200 82 C 165 82 138 105 138 138 C 138 168 158 182 185 192 L 215 202 C 242 212 262 228 262 262 C 262 298 235 318 200 318 C 162 318 138 295 138 268"
+      fill="none" stroke="#1aaa44" stroke-width="1.5" stroke-linecap="round"
+      stroke-dasharray="36 10000" stroke-dashoffset="-488" opacity="0.38"/>
+  </g>
+
+  <!-- Clean S outline on top -->
+  <path d="
+    M 255 130
+    C 255 100 230 82 200 82
+    C 165 82 138 105 138 138
+    C 138 168 158 182 185 192
+    L 215 202
+    C 242 212 262 228 262 262
+    C 262 298 235 318 200 318
+    C 162 318 138 295 138 268
+  "
+  fill="none"
+  stroke="#1DB954"
+  stroke-width="3"
+  stroke-linecap="round"
+  opacity="0.6"
+  />
+
+  <!-- Subtle outer ring detail -->
+  <circle cx="200" cy="200" r="188" fill="none" stroke="#1DB954" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="200" cy="200" r="182" fill="none" stroke="#1DB954" stroke-width="0.3" opacity="0.15"/>
+</svg>

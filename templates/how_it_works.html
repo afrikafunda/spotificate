@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works · Spotificate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1DB954;
+            --black: #0a0a0a;
+            --white: #f5f5f0;
+            --grey: #1a1a1a;
+            --mid: #2a2a2a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        nav {
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1f1f1f;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 0.1em;
+            color: var(--green);
+            text-decoration: none;
+        }
+
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--white); }
+
+        .nav-links .btn-login {
+            background: var(--green);
+            color: var(--black);
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            font-weight: 500;
+        }
+
+        .nav-links .btn-login:hover { opacity: 0.9; color: var(--black); }
+
+        main {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        .page-header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .page-header p {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 1rem;
+        }
+
+        .page-header h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--grey);
+            border: 1px solid #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            color: var(--green);
+            flex-shrink: 0;
+        }
+
+        .section h2 {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            width: 1px;
+            height: 2rem;
+            background: #1f1f1f;
+            margin-left: 17px;
+            margin-bottom: 0;
+        }
+
+        .card {
+            background: var(--grey);
+            border-radius: 12px;
+            padding: 1.75rem;
+            border: 1px solid #242424;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .card p:last-child { margin-bottom: 0; }
+
+        .card a {
+            color: var(--green);
+            text-decoration: none;
+        }
+
+        .card a:hover { text-decoration: underline; }
+
+        .card ul {
+            list-style: none;
+            margin-top: 0.75rem;
+        }
+
+        .card ul li {
+            font-size: 0.875rem;
+            color: #888;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #242424;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card ul li:last-child { border-bottom: none; }
+
+        .card ul li::before {
+            content: '→';
+            color: var(--green);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .highlight-box {
+            background: rgba(29,185,84,0.06);
+            border: 1px solid rgba(29,185,84,0.2);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            font-size: 0.825rem;
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        .highlight-box strong { color: var(--green); }
+
+        .formats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .format-tag {
+            background: var(--mid);
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.75rem;
+            color: #888;
+            font-family: monospace;
+        }
+
+        .cta-wrap {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid #1f1f1f;
+        }
+
+        .cta-wrap p {
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--green);
+            color: var(--black);
+            padding: 1rem 2.5rem;
+            border-radius: 100px;
+            font-weight: 500;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(29,185,84,0.3);
+        }
+
+        @media (max-width: 600px) {
+            nav { padding: 1rem 1.5rem; }
+            main { padding: 2.5rem 1.25rem 4rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Offline → Spotify</a>
+        <div class="nav-links">
+            <a href="/how-it-works">How it works</a>
+            <a href="/login" class="btn-login">Get Started</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <p>Setup Guide</p>
+            <h1>How It Works</h1>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="section">
+            <div class="section-label">
+                <div class="step-badge">1</div>
+                <h2>Create a free Audd.io account</h2>
+            </div>
+            <div class="card">
+                <p>
+                    This app uses <a href="https://audd.io" target="_blank">Audd.io</a> to identify your offline songs.
+                    Audd.io listens to your audio files and matches them to a database of known tracks — returning the
+                    title, artist, and Spotify URI so we can add them to your playlist.
+                </p>
+                <ul>
+                    <li>Go to <a href="https://audd.io" target="_blank">audd.io</a> and click <strong>Sign Up</strong></li>
+                    <li>Verify your email and log in to the <a href="https://dashboard.audd.io" target="_blank">Audd.io dashboard</a></li>
+                    <li>Copy your API token from the dashboard home page</li>
+                </ul>
+                <div class="highlight-box">
+                    <strong>Free tier:</strong> Audd.io gives you the first 300 requests for free. Each song file you upload uses one recognition. After 300 you'll need to upgrade.
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Step 2 -->
+        <div class="section">
+            <div class="section-label">
+                <div class="step-badge">2</div>
+                <h2>Prepare your local music files</h2>
+            </div>
+            <div class="card">
+                <p>
+                    Gather the offline audio files you want to convert into a Spotify playlist. These are files
+                    sitting on your computer — downloaded songs, ripped CDs, voice memos, anything.
+                    The better the audio quality, the more accurate the recognition.
+                </p>
+                <p>Supported formats:</p>
+                <div class="formats">
+                    <span class="format-tag">.mp3</span>
+                    <span class="format-tag">.wav</span>
+                    <span class="format-tag">.flac</span>
+                    <span class="format-tag">.aac</span>
+                    <span class="format-tag">.ogg</span>
+                    <span class="format-tag">.m4a</span>
+                    <span class="format-tag">.wma</span>
+                    <span class="format-tag">.aiff</span>
+                </div>
+                <div class="highlight-box">
+                    <strong>Tip:</strong> If a song is not recognized it usually means the audio quality is too low,
+                    the file is heavily edited, or the track is too obscure for Audd.io's database.
+                    Live recordings and remixes are often harder to match.
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Step 3 -->
+        <div class="section">
+            <div class="section-label">
+                <div class="step-badge">3</div>
+                <h2>Log in and paste your Audd.io key</h2>
+            </div>
+            <div class="card">
+                <p>
+                    Click <strong>Get Started</strong>, log in with your Spotify account, and you'll land on the dashboard.
+                    Head to the <strong>⚙ Settings</strong> tab and paste your Audd.io API key there.
+                </p>
+                <ul>
+                    <li>The key is stored only for your current session</li>
+                    <li>It is never saved to any database</li>
+                    <li>You will need to paste it again if you log out or close the browser</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Step 4 -->
+        <div class="section">
+            <div class="section-label">
+                <div class="step-badge">4</div>
+                <h2>Create your playlist</h2>
+            </div>
+            <div class="card">
+                <p>
+                    Go to the <strong>Create Playlist</strong> tab. Give your playlist a name, then drag and drop
+                    your audio files into the upload area (or click to browse). Hit <strong>Recognize & Create</strong>
+                    and watch the progress live as each song gets identified and added to Spotify.
+                </p>
+                <ul>
+                    <li>The playlist is created as <strong>private</strong> on your Spotify account</li>
+                    <li>Songs that couldn't be matched are shown separately</li>
+                    <li>Successfully created playlists are saved to your <strong>History</strong> tab for future restoration</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta-wrap">
+            <p>Ready to get started?</p>
+            <a href="/login" class="btn-cta">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                Continue with Spotify
+            </a>
+        </div>
+    </main>
+</body>
+</html>
