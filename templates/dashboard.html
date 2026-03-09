@@ -715,7 +715,6 @@
                             `;
                             resultDetail.textContent = songLines.join(' · ');
                             showToast(`✓ "${event.playlist_name}" created with ${event.total_added} tracks!`, 'success');
-                            setTimeout(() => location.reload(), 3000);
                         } else if (event.type === 'fatal_error') {
                             result.className = 'result visible error';
                             resultTitle.textContent = 'Error';
