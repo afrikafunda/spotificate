@@ -6,6 +6,12 @@
 
 ---
 
+## 🚧 Status — Proof of Concept
+
+> This app is fully built and deployed but is currently pending **Spotify Extended Quota approval**. Spotify restricts new developer apps to a whitelist of up to 25 manually added users until the app passes their review process. If you'd like to try it, reach out and I'll add your Spotify email to the whitelist. Extended Quota has been applied for and is pending approval.
+
+---
+
 ## What It Does
 
 Spotificate takes audio files sitting on your computer — MP3s, FLACs, WAVs, whatever — runs them through the [Audd.io](https://audd.io) song recognition API to identify them, finds each track on Spotify, and creates a private playlist on your account. All in one flow from the browser.
@@ -94,4 +100,4 @@ This started as a terminal-based Python script and evolved into a full web appli
 
 Built by **Afrika Funda**
 
-[LinkedIn](https://linkedin.com/in/afrika-adumise-funda-1a7270253) · [Live App](https://spotificate.afr1ka.xyz) · [Video App](https://spotificate.afr1ka.xyz)
+[LinkedIn](https://linkedin.com/in/afrika-adumise-funda-1a7270253) · [Live App](https://spotificate.afr1ka.xyz) · [Video Demo](https://spotificate.afr1ka.xyz)
