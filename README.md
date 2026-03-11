@@ -2,7 +2,8 @@
 
 > Turn your offline music collection into a Spotify playlist — automatically.
 
-**Live at:** [spotificate.afr1ka.xyz](https://spotificate.afr1ka.xyz)
+**Live at:** [spotificate.afr1ka.xyz](https://spotificate.afr1ka.xyz) \
+**Quick Video Demo** [Google Drive](https://drive.google.com/file/d/1qbGBwIm9LkPk4ha2zH_aWzYs0NHtqFw2/view?usp=drive_link)
 
 ---
 
@@ -17,12 +18,6 @@
 Spotificate takes audio files sitting on your computer — MP3s, FLACs, WAVs, whatever — runs them through the [Audd.io](https://audd.io) song recognition API to identify them, finds each track on Spotify, and creates a private playlist on your account. All in one flow from the browser.
 
 It also saves your playlist history so you can restore any previously created playlist to Spotify at any time.
-
----
-
-## ⚠️ Browser Warning
-
-> Some browsers (particularly Chrome) may display a **"Dangerous site"** warning when you visit. This is a **false positive** — the site is new and unverified with Google's Safe Browsing database, which flags new domains that have login flows and input fields. The site does not collect passwords, store credentials, or do anything malicious. You can safely click **"Advanced → Proceed"** to continue. The warning will clear once Google verifies the domain.
 
 ---
 
@@ -100,4 +95,4 @@ This started as a terminal-based Python script and evolved into a full web appli
 
 Built by **Afrika Funda**
 
-[LinkedIn](https://linkedin.com/in/afrika-adumise-funda-1a7270253) · [Live App](https://spotificate.afr1ka.xyz) · [Video Demo](https://spotificate.afr1ka.xyz)
+[LinkedIn](https://linkedin.com/in/afrika-adumise-funda-1a7270253) · [Live App](https://spotificate.afr1ka.xyz) · 
